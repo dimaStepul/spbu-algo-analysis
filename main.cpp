@@ -16,7 +16,6 @@ void SortArray(void (*sorter)(int *, int), int *A, int n, const char *arrayname)
 
 void tester(void (*sorter)(int *, int),  int n, const char *name) {
     std::cout << "====== Method: " << name << "==========" << std::endl;
-    int *A = new int[n];
     auto startTime = std::chrono::system_clock::now();
     std::chrono::microseconds elapsed_microseconds =
             std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now() - startTime);
@@ -31,12 +30,11 @@ void tester(void (*sorter)(int *, int),  int n, const char *name) {
     }
     std::cout << "TIME OF EXECUTE: ";
     std::cout << elapsed_microseconds.count() / 1001 << std::endl;
-    delete[] A;
 }
 
 int main() {
     int n;
-    n = 32000;
+    n = 0;
     tester(QuickSort, n, "Quick sorting");
     return 0;
 }
